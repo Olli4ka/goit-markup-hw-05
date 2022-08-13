@@ -13,6 +13,7 @@
 	--color-gradient-hero: rgba(47, 48, 58, 0.4);
 	--color-soc-icons: #afb1b8;
 	--card-set-gap: 30px;
+	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -99,7 +100,7 @@ button {
 	line-height: 1.14;
 	letter-spacing: 0.02em;
 	color: var(--color-titles);
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function);
 }
 .site-nav a:hover,
 .auth-nav a:hover,
@@ -109,15 +110,29 @@ button {
 	color: var(--accent-color);
 }
 
-.site-nav .current {
+.current {
 	color: var(--accent-color);
+}
+.site-nav {
+	position: relative;
+}
+.site-nav::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 4px;
+	color: var(--accent-color);
+	border-radius: 2px;
 }
 .auth-nav a {
 	font-weight: 500;
 	line-height: 1.14;
 	letter-spacing: 0.02em;
 	color: var(--color-text);
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function);
 }
 .site-nav {
 	display: flex;
@@ -183,7 +198,7 @@ button {
 	border-radius: 4px;
 	margin-left: auto;
 	margin-right: auto;
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
 .main-button:hover,
 .main-button:focus {
@@ -333,11 +348,11 @@ button {
 	justify-content: center;
 	color: var(--color-soc-icons);
 
-	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 250ms var(--timing-function);
 }
 .team-contacts-icon {
 	fill: currentColor;
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function);
 }
 .team-contacts-link:hover,
 .team-contacts-link:focus {
@@ -369,7 +384,7 @@ button {
 	justify-content: center;
 	color: var(--color-soc-icons);
 
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function);
 }
 .clients-logo-icon {
 	fill: currentColor;
@@ -425,7 +440,7 @@ address {
 	line-height: 1.71;
 }
 address a {
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function);
 }
 address a:hover,
 address a:focus {
@@ -460,7 +475,7 @@ address a:focus {
 	align-items: center;
 	justify-content: center;
 
-	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: background-color 250ms var(--timing-function);
 }
 .sotial-links:hover,
 .sotial-links:focus {
@@ -482,8 +497,8 @@ address a:focus {
 	background-color: var(--color-fon);
 	border-radius: 4px;
 
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms var(--timing-function), background-color 250ms var(--timing-function),
+		box-shadow 250ms var(--timing-function);
 }
 .filters button:hover,
 .filters button:focus,
@@ -519,7 +534,7 @@ address a:focus {
 }
 .card-link {
 	display: block;
-	transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: box-shadow 250ms var(--timing-function);
 }
 .card-link:hover,
 .card-link:focus {
@@ -549,7 +564,7 @@ address a:focus {
 	color: #ffffff;
 
 	transform: translateY(100%);
-	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: transform 250ms var(--timing-function);
 	overflow: auto;
 }
 .card-link:hover .card-about {
@@ -582,7 +597,7 @@ address a:focus {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.2);
-	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms;
+	transition: opacity 250ms var(--timing-function), visibility 250ms;
 }
 .modal {
 	position: absolute;
@@ -596,7 +611,7 @@ address a:focus {
 	border-radius: 4px;
 
 	transform: translate(-50%, -50%) scale(1);
-	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: transform 250ms var(--timing-function);
 }
 .backdrop.is-hidden .modal {
 	transform: translate(-50%, -50%) scale(0);
